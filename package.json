@@ -1,0 +1,38 @@
+{
+  "name": "ecosysteme-rdc",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "db:migrate": "node --env-file=.env packages/db/scripts/migrate.mjs",
+    "db:generate": "pnpm --filter @ecosysteme-rdc/db generate",
+    "dev:api": "npm run build --workspace=@ecosysteme-rdc/shared && npm run dev --workspace=@ecosysteme-rdc/api",
+    "dev:scorecongo": "npm run dev --workspace=scorecongo-web",
+    "dev:scoring": "cd packages/scoring-engine && python -m uvicorn main:app --reload --port 5000",
+    "dev:frako": "npm run start --workspace=@ecosysteme-rdc/frako-app",
+    "dev:frako": "npm run start --workspace=@ecosysteme-rdc/frako-app",
+    "dev:frako": "pnpm --filter @ecosysteme-rdc/frako-app start",
+    "dev:frako": "npm run start --workspace=@ecosysteme-rdc/frako-app",
+    "dev:frako": "pnpm --filter @ecosysteme-rdc/frako-app start"
+  },
+  "devDependencies": {
+    "postgres": "^3.4.0",
+    "prettier": "^3.2.5",
+    "turbo": "^2.3.0"
+  },
+  "packageManager": "pnpm@9.14.2",
+  "engines": {
+    "node": ">=20"
+  },
+  "overrides": {
+    "expo": "~54.0.0"
+  }
+}

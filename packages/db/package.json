@@ -1,0 +1,17 @@
+{
+  "name": "@ecosysteme-rdc/db",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "db:generate": "supabase gen types typescript --local -o src/types/supabase.ts",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:migrate:supabase": "supabase db push",
+    "db:reset": "supabase db reset"
+  },
+  "dependencies": {
+    "postgres": "^3.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  }
+}
